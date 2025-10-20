@@ -14,7 +14,7 @@ namespace Superhero_Database
     public partial class Form1 : Form
     {
         public Form1()
-        {
+        {   
             InitializeComponent();
         }
         // tuple fuction is a function that uses the C# tuple syntax in its return type
@@ -126,6 +126,100 @@ namespace Superhero_Database
         }
         private void Updatebtn_Click(object sender, EventArgs e)
         {
+            
+        {
+            try
+            {
+                string filePath = "superheroes.txt";
+
+                // Check if file exists
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("No data file found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Ensure all fields are filled
+                if (string.IsNullOrWhiteSpace(SuperheroIDtxt.Text) ||
+                    string.IsNullOrWhiteSpace(Nametxt.Text) ||
+                    string.IsNullOrWhiteSpace(SuperPowertxt.Text) ||
+                    string.IsNullOrWhiteSpace(Citytxt.Text) ||
+                    string.IsNullOrWhiteSpace(Agetxt.Text) ||
+                    string.IsNullOrWhiteSpace(ExamScoretxt.Text))
+                {
+                    MessageBox.Show("Please fill in all fields before updating.", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Load all heroes from the file
+                var heroes = File.ReadAllLines(filePath).ToList();
+                string idToUpdate = SuperheroIDtxt.Text.Trim();
+                bool found = false;
+
+                // Loop through each hero record
+                for (int i = 0; i < heroes.Count; i++)
+                {
+                    var data = heroes[i].Split(',');
+
+                    if (data[0].Trim() == idToUpdate)
+                    {
+                        // Confirm update before making changes
+                        DialogResult confirm = MessageBox.Show(
+                            "Are you sure you want to update this superhero?",
+                            "Confirm Update",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+                        if (confirm != DialogResult.Yes)
+                            return;
+
+                        // Validate Age and Score
+                        if (!int.TryParse(Agetxt.Text, out int ageValue))
+                        {
+                            MessageBox.Show("Enter a valid number for the Age.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        if (!int.TryParse(ExamScoretxt.Text, out int score))
+                        {
+                            MessageBox.Show("Enter a valid number for the Score.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        // Recalculate rank and threat level
+                        var (rank, threat) = CalculatedRankAndThreat(score);
+
+                        // Update the hero's data line
+                        string updatedHeroLine = $"{idToUpdate},{Nametxt.Text.Trim()},{ageValue},{SuperPowertxt.Text.Trim()}," +
+                                                 $"{Citytxt.Text.Trim()},{score},{rank},{threat}";
+
+                        // Replace the old line with the updated one
+                        heroes[i] = updatedHeroLine;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found)
+                {
+                    // Save updated data back to file
+                    File.WriteAllLines(filePath, heroes);
+
+                    MessageBox.Show("Superhero updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refresh DataGridView
+                    LoadHeroesIntoGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Superhero ID not found. Please check the ID again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating hero: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         }
 
@@ -194,17 +288,128 @@ namespace Superhero_Database
 
         private void ViewAllbtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Load all heroes from the file
+                LoadHeroesIntoGrid();
 
+                // Confirmation message
+                MessageBox.Show("All superheroes loaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading heroes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Summarybtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Exitbtn_Click(object sender, EventArgs e)
+      
         {
+            try
+            {
+                string filePath = "superheroes.txt";
+                string summaryPath = "summary.txt";
+
+                // Check if the superhero data file exists
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("No superhero data file found.", "File Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Read all hero data
+                string[] lines = File.ReadAllLines(filePath);
+
+                if (lines.Length == 0)
+                {
+                    MessageBox.Show("The data file is empty. Please add superheroes first.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                int totalHeroes = 0;
+                int totalAge = 0;
+                int totalScore = 0;
+                int sCount = 0, aCount = 0, bCount = 0, cCount = 0;
+
+                // Process each hero record
+                foreach (var line in lines)
+                {
+                    var data = line.Split(',');
+
+                    // Skip invalid or incomplete lines
+                    if (data.Length < 8)
+                        continue;
+
+                    totalHeroes++;
+
+                    if (int.TryParse(data[2], out int age))
+                        totalAge += age;
+
+                    if (int.TryParse(data[5], out int score))
+                        totalScore += score;
+
+                    string rank = data[6].Trim();
+                    switch (rank)
+                    {
+                        case "S-Rank": sCount++; break;
+                        case "A-Rank": aCount++; break;
+                        case "B-Rank": bCount++; break;
+                        case "C-Rank": cCount++; break;
+                    }
+                }
+
+                // Calculate averages safely
+                double avgAge = totalHeroes > 0 ? (double)totalAge / totalHeroes : 0;
+                double avgScore = totalHeroes > 0 ? (double)totalScore / totalHeroes : 0;
+
+                // Display results on the form (use TextBoxes or Labels with these names)
+                TotalHeroestxt.Text = totalHeroes.ToString();
+                Agetxt.Text = avgAge.ToString("F2");
+                ExamScoretxt.Text = avgScore.ToString("F2");
+                SRanktxt.Text = sCount.ToString();
+                ARanktxt.Text = aCount.ToString();
+                BRanktxt.Text = bCount.ToString();
+                CRanktxt.Text = cCount.ToString();
+
+                // Build report content
+                string summaryReport =
+                    "===== Superhero Summary Report =====\n" +
+                    $"Total Heroes: {totalHeroes}\n" +
+                    $"Average Age: {avgAge:F2}\n" +
+                    $"Average Exam Score: {avgScore:F2}\n\n" +
+                    $"S-Rank Heroes: {sCount}\n" +
+                    $"A-Rank Heroes: {aCount}\n" +
+                    $"B-Rank Heroes: {bCount}\n" +
+                    $"C-Rank Heroes: {cCount}\n" +
+                    "=====================================\n" +
+                    $"Report generated on: {DateTime.Now}\n";
+
+                // Confirm before saving
+                DialogResult confirm = MessageBox.Show(
+                    "Generate and save the summary report to summary.txt?",
+                    "Confirm Report Generation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm != DialogResult.Yes)
+                    return;
+
+                // Save report to file
+                File.WriteAllText(summaryPath, summaryReport);
+
+                MessageBox.Show("Summary report generated and saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error generating summary report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         }
+
+        
+
+        
     }
 }

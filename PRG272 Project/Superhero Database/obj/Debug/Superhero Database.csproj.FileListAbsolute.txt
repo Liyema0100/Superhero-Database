@@ -8,3 +8,14 @@ C:\Users\Masindi Lukoto\Desktop\PRG272 Project\Superhero Database\obj\Debug\Supe
 C:\Users\Masindi Lukoto\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.csproj.CoreCompileInputs.cache
 C:\Users\Masindi Lukoto\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.exe
 C:\Users\Masindi Lukoto\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.pdb
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\bin\Debug\Superhero Database.exe.config
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\bin\Debug\Superhero Database.exe
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\bin\Debug\Superhero Database.pdb
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.csproj.AssemblyReference.cache
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.exe.config
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero_Database.Form1.resources
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero_Database.Properties.Resources.resources
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.csproj.GenerateResource.cache
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.csproj.CoreCompileInputs.cache
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.exe
+C:\Users\mpuru\OneDrive\Desktop\PRG272 Project\Superhero Database\obj\Debug\Superhero Database.pdb

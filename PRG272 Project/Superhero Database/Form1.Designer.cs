@@ -38,10 +38,17 @@
             this.Addbtn = new System.Windows.Forms.Button();
             this.Updatebtn = new System.Windows.Forms.Button();
             this.Deletebtn = new System.Windows.Forms.Button();
-            this.Summarybtn = new System.Windows.Forms.Button();
+            this.GenerateReportbtn = new System.Windows.Forms.Button();
             this.ViewAllbtn = new System.Windows.Forms.Button();
-            this.Exitbtn = new System.Windows.Forms.Button();
             this.Heroesdgv = new System.Windows.Forms.DataGridView();
+            this.SuperheroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HeroName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SuperPower = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExamScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThreatLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.Nametxt = new System.Windows.Forms.TextBox();
             this.SuperPowertxt = new System.Windows.Forms.TextBox();
@@ -53,15 +60,23 @@
             this.Rankcmb = new System.Windows.Forms.ComboBox();
             this.Citytxt = new System.Windows.Forms.TextBox();
             this.ExamScoretxt = new System.Windows.Forms.TextBox();
-            this.SuperheroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HeroName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SuperPower = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExamScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThreatLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CRanktxt = new System.Windows.Forms.TextBox();
+            this.BRanktxt = new System.Windows.Forms.TextBox();
+            this.ARanktxt = new System.Windows.Forms.TextBox();
+            this.SRanktxt = new System.Windows.Forms.TextBox();
+            this.AvgExamScoretxt = new System.Windows.Forms.TextBox();
+            this.AvgAgetxt = new System.Windows.Forms.TextBox();
+            this.TotalHeroestxt = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Heroesdgv)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -156,15 +171,15 @@
             this.Deletebtn.UseVisualStyleBackColor = true;
             this.Deletebtn.Click += new System.EventHandler(this.Deletebtn_Click);
             // 
-            // Summarybtn
+            // GenerateReportbtn
             // 
-            this.Summarybtn.Location = new System.Drawing.Point(839, 664);
-            this.Summarybtn.Name = "Summarybtn";
-            this.Summarybtn.Size = new System.Drawing.Size(167, 23);
-            this.Summarybtn.TabIndex = 13;
-            this.Summarybtn.Text = "Generate Summary";
-            this.Summarybtn.UseVisualStyleBackColor = true;
-            this.Summarybtn.Click += new System.EventHandler(this.Summarybtn_Click);
+            this.GenerateReportbtn.Location = new System.Drawing.Point(839, 664);
+            this.GenerateReportbtn.Name = "GenerateReportbtn";
+            this.GenerateReportbtn.Size = new System.Drawing.Size(167, 23);
+            this.GenerateReportbtn.TabIndex = 13;
+            this.GenerateReportbtn.Text = "Generate Report";
+            this.GenerateReportbtn.UseVisualStyleBackColor = true;
+            this.GenerateReportbtn.Click += new System.EventHandler(this.Summarybtn_Click);
             // 
             // ViewAllbtn
             // 
@@ -175,16 +190,6 @@
             this.ViewAllbtn.Text = "View All";
             this.ViewAllbtn.UseVisualStyleBackColor = true;
             this.ViewAllbtn.Click += new System.EventHandler(this.ViewAllbtn_Click);
-            // 
-            // Exitbtn
-            // 
-            this.Exitbtn.Location = new System.Drawing.Point(1049, 664);
-            this.Exitbtn.Name = "Exitbtn";
-            this.Exitbtn.Size = new System.Drawing.Size(75, 23);
-            this.Exitbtn.TabIndex = 15;
-            this.Exitbtn.Text = "Exit";
-            this.Exitbtn.UseVisualStyleBackColor = true;
-            this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
             // Heroesdgv
             // 
@@ -206,6 +211,70 @@
             this.Heroesdgv.RowTemplate.Height = 24;
             this.Heroesdgv.Size = new System.Drawing.Size(990, 552);
             this.Heroesdgv.TabIndex = 17;
+            // 
+            // SuperheroID
+            // 
+            this.SuperheroID.HeaderText = "Superhero ID";
+            this.SuperheroID.MinimumWidth = 6;
+            this.SuperheroID.Name = "SuperheroID";
+            this.SuperheroID.ReadOnly = true;
+            this.SuperheroID.Width = 80;
+            // 
+            // HeroName
+            // 
+            this.HeroName.HeaderText = "Hero Name";
+            this.HeroName.MinimumWidth = 6;
+            this.HeroName.Name = "HeroName";
+            this.HeroName.ReadOnly = true;
+            this.HeroName.Width = 120;
+            // 
+            // Age
+            // 
+            this.Age.HeaderText = "Age";
+            this.Age.MinimumWidth = 6;
+            this.Age.Name = "Age";
+            this.Age.ReadOnly = true;
+            this.Age.Width = 80;
+            // 
+            // SuperPower
+            // 
+            this.SuperPower.HeaderText = "Super Power";
+            this.SuperPower.MinimumWidth = 6;
+            this.SuperPower.Name = "SuperPower";
+            this.SuperPower.ReadOnly = true;
+            this.SuperPower.Width = 120;
+            // 
+            // City
+            // 
+            this.City.HeaderText = "City";
+            this.City.MinimumWidth = 6;
+            this.City.Name = "City";
+            this.City.ReadOnly = true;
+            this.City.Width = 125;
+            // 
+            // ExamScore
+            // 
+            this.ExamScore.HeaderText = "Exam Score";
+            this.ExamScore.MinimumWidth = 6;
+            this.ExamScore.Name = "ExamScore";
+            this.ExamScore.ReadOnly = true;
+            this.ExamScore.Width = 80;
+            // 
+            // Rank
+            // 
+            this.Rank.HeaderText = "Rank";
+            this.Rank.MinimumWidth = 6;
+            this.Rank.Name = "Rank";
+            this.Rank.ReadOnly = true;
+            this.Rank.Width = 80;
+            // 
+            // ThreatLevel
+            // 
+            this.ThreatLevel.HeaderText = "Threat Level";
+            this.ThreatLevel.MinimumWidth = 6;
+            this.ThreatLevel.Name = "ThreatLevel";
+            this.ThreatLevel.ReadOnly = true;
+            this.ThreatLevel.Width = 300;
             // 
             // label4
             // 
@@ -297,75 +366,157 @@
             this.ExamScoretxt.Size = new System.Drawing.Size(100, 22);
             this.ExamScoretxt.TabIndex = 28;
             // 
-            // SuperheroID
+            // groupBox1
             // 
-            this.SuperheroID.HeaderText = "Superhero ID";
-            this.SuperheroID.MinimumWidth = 6;
-            this.SuperheroID.Name = "SuperheroID";
-            this.SuperheroID.ReadOnly = true;
-            this.SuperheroID.Width = 80;
+            this.groupBox1.Controls.Add(this.CRanktxt);
+            this.groupBox1.Controls.Add(this.BRanktxt);
+            this.groupBox1.Controls.Add(this.ARanktxt);
+            this.groupBox1.Controls.Add(this.SRanktxt);
+            this.groupBox1.Controls.Add(this.AvgExamScoretxt);
+            this.groupBox1.Controls.Add(this.AvgAgetxt);
+            this.groupBox1.Controls.Add(this.TotalHeroestxt);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(1405, 86);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(348, 531);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Summary report";
             // 
-            // HeroName
+            // CRanktxt
             // 
-            this.HeroName.HeaderText = "Hero Name";
-            this.HeroName.MinimumWidth = 6;
-            this.HeroName.Name = "HeroName";
-            this.HeroName.ReadOnly = true;
-            this.HeroName.Width = 120;
+            this.CRanktxt.Location = new System.Drawing.Point(196, 394);
+            this.CRanktxt.Name = "CRanktxt";
+            this.CRanktxt.Size = new System.Drawing.Size(100, 30);
+            this.CRanktxt.TabIndex = 13;
             // 
-            // Age
+            // BRanktxt
             // 
-            this.Age.HeaderText = "Age";
-            this.Age.MinimumWidth = 6;
-            this.Age.Name = "Age";
-            this.Age.ReadOnly = true;
-            this.Age.Width = 80;
+            this.BRanktxt.Location = new System.Drawing.Point(196, 328);
+            this.BRanktxt.Name = "BRanktxt";
+            this.BRanktxt.Size = new System.Drawing.Size(100, 30);
+            this.BRanktxt.TabIndex = 12;
             // 
-            // SuperPower
+            // ARanktxt
             // 
-            this.SuperPower.HeaderText = "Super Power";
-            this.SuperPower.MinimumWidth = 6;
-            this.SuperPower.Name = "SuperPower";
-            this.SuperPower.ReadOnly = true;
-            this.SuperPower.Width = 120;
+            this.ARanktxt.Location = new System.Drawing.Point(196, 266);
+            this.ARanktxt.Name = "ARanktxt";
+            this.ARanktxt.Size = new System.Drawing.Size(100, 30);
+            this.ARanktxt.TabIndex = 11;
             // 
-            // City
+            // SRanktxt
             // 
-            this.City.HeaderText = "City";
-            this.City.MinimumWidth = 6;
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
-            this.City.Width = 125;
+            this.SRanktxt.Location = new System.Drawing.Point(196, 205);
+            this.SRanktxt.Name = "SRanktxt";
+            this.SRanktxt.Size = new System.Drawing.Size(100, 30);
+            this.SRanktxt.TabIndex = 10;
             // 
-            // ExamScore
+            // AvgExamScoretxt
             // 
-            this.ExamScore.HeaderText = "Exam Score";
-            this.ExamScore.MinimumWidth = 6;
-            this.ExamScore.Name = "ExamScore";
-            this.ExamScore.ReadOnly = true;
-            this.ExamScore.Width = 80;
+            this.AvgExamScoretxt.Location = new System.Drawing.Point(213, 157);
+            this.AvgExamScoretxt.Name = "AvgExamScoretxt";
+            this.AvgExamScoretxt.Size = new System.Drawing.Size(100, 30);
+            this.AvgExamScoretxt.TabIndex = 9;
             // 
-            // Rank
+            // AvgAgetxt
             // 
-            this.Rank.HeaderText = "Rank";
-            this.Rank.MinimumWidth = 6;
-            this.Rank.Name = "Rank";
-            this.Rank.ReadOnly = true;
-            this.Rank.Width = 80;
+            this.AvgAgetxt.Location = new System.Drawing.Point(196, 101);
+            this.AvgAgetxt.Name = "AvgAgetxt";
+            this.AvgAgetxt.Size = new System.Drawing.Size(100, 30);
+            this.AvgAgetxt.TabIndex = 8;
             // 
-            // ThreatLevel
+            // TotalHeroestxt
             // 
-            this.ThreatLevel.HeaderText = "Threat Level";
-            this.ThreatLevel.MinimumWidth = 6;
-            this.ThreatLevel.Name = "ThreatLevel";
-            this.ThreatLevel.ReadOnly = true;
-            this.ThreatLevel.Width = 300;
+            this.TotalHeroestxt.BackColor = System.Drawing.SystemColors.Window;
+            this.TotalHeroestxt.Location = new System.Drawing.Point(196, 49);
+            this.TotalHeroestxt.Name = "TotalHeroestxt";
+            this.TotalHeroestxt.ReadOnly = true;
+            this.TotalHeroestxt.Size = new System.Drawing.Size(100, 30);
+            this.TotalHeroestxt.TabIndex = 7;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(19, 404);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(135, 20);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "C-Rank Hereos: ";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(18, 335);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(130, 20);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "B-Rank Hereos:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(18, 273);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(129, 20);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "A-Rank Hereos:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(18, 212);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(129, 20);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "S-Rank Hereos:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 167);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(176, 20);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Average Exam Score: ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(18, 111);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(114, 20);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Average Age: ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(18, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Total Hereos:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1509, 758);
+            this.ClientSize = new System.Drawing.Size(1788, 758);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ExamScoretxt);
             this.Controls.Add(this.Citytxt);
             this.Controls.Add(this.Rankcmb);
@@ -378,9 +529,8 @@
             this.Controls.Add(this.Nametxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Heroesdgv);
-            this.Controls.Add(this.Exitbtn);
             this.Controls.Add(this.ViewAllbtn);
-            this.Controls.Add(this.Summarybtn);
+            this.Controls.Add(this.GenerateReportbtn);
             this.Controls.Add(this.Deletebtn);
             this.Controls.Add(this.Updatebtn);
             this.Controls.Add(this.Addbtn);
@@ -394,6 +544,8 @@
             this.Name = "Form1";
             this.Text = "Superhero System";
             ((System.ComponentModel.ISupportInitialize)(this.Heroesdgv)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,9 +563,8 @@
         private System.Windows.Forms.Button Addbtn;
         private System.Windows.Forms.Button Updatebtn;
         private System.Windows.Forms.Button Deletebtn;
-        private System.Windows.Forms.Button Summarybtn;
+        private System.Windows.Forms.Button GenerateReportbtn;
         private System.Windows.Forms.Button ViewAllbtn;
-        private System.Windows.Forms.Button Exitbtn;
         private System.Windows.Forms.DataGridView Heroesdgv;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Nametxt;
@@ -434,6 +585,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ExamScore;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rank;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThreatLevel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox CRanktxt;
+        private System.Windows.Forms.TextBox BRanktxt;
+        private System.Windows.Forms.TextBox ARanktxt;
+        private System.Windows.Forms.TextBox SRanktxt;
+        private System.Windows.Forms.TextBox AvgExamScoretxt;
+        private System.Windows.Forms.TextBox AvgAgetxt;
+        private System.Windows.Forms.TextBox TotalHeroestxt;
     }
 }
 
