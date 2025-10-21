@@ -1,0 +1,5 @@
+Bce514,Benson,16,Invisibility,Pretoria,2,C-Rank,Pop Quiz (potential threat to an individual student)
+Cin456,Amanda,30,Super Strength,Pretoria,5,C-Rank,Pop Quiz (potential threat to an individual student)
+Hbt152,Mike,39,Telekinesis,Pretoria,100,S-Rank,Finals Week (threat to the entire academy)
+Cin568,Estelle,29,Super Speed,Pretoria,89,S-Rank,Finals Week (threat to the entire academy)
+Bga175,Lucy,17,Telekinesis,Pretoria,100,S-Rank,Finals Week (threat to the entire academy)
